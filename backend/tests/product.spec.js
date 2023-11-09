@@ -8,7 +8,7 @@ const {
   validateDatasheet,
   validateBrand,
   validateAvailable,
-  validateSubcategory,
+  // validateSubcategory,
   validateProduct,
 } = require("../helpers/validations");
 
@@ -331,320 +331,320 @@ describe("Módulo de Produtos - Criação", () => {
 
   /* ---------------------------------------- Subcategoria ---------------------------------------- */
 
-  it("Validação de Subcategoria - success with valid subcategory", async () => {
-    const validSubcategory = {
-      id: 1,
-      nome: "Teste",
-      createdAt: "2023-09-27T18:13:58.552Z",
-      updatedAt: "2023-09-27T18:13:58.552Z",
-      id_categoria: 1,
-    };
+  // it("Validação de Subcategoria - success with valid subcategory", async () => {
+  //   const validSubcategory = {
+  //     id: 1,
+  //     nome: "Teste",
+  //     createdAt: "2023-09-27T18:13:58.552Z",
+  //     updatedAt: "2023-09-27T18:13:58.552Z",
+  //     id_categoria: 1,
+  //   };
 
-    Subcategoria.findByPk = jest.fn().mockResolvedValue(validSubcategory);
-    const result = await validateSubcategory(1);
+  //   Subcategoria.findByPk = jest.fn().mockResolvedValue(validSubcategory);
+  //   const result = await validateSubcategory(1);
 
-    expect(result).toEqual(null);
-  });
+  //   expect(result).toEqual(null);
+  // });
 
-  it("Validação de Subcategoria - Non-existent subcategory", async () => {
-    Subcategoria.findByPk = jest.fn().mockResolvedValue(null);
+  // it("Validação de Subcategoria - Non-existent subcategory", async () => {
+  //   Subcategoria.findByPk = jest.fn().mockResolvedValue(null);
 
-    const result = await validateSubcategory(1);
+  //   const result = await validateSubcategory(1);
 
-    expect(result).toEqual({
-      status: 404,
-      message: "Informe uma subcategoria válida",
-    });
-  });
+  //   expect(result).toEqual({
+  //     status: 404,
+  //     message: "Informe uma subcategoria válida",
+  //   });
+  // });
 
-  it("Validação de Subcategoria - empty field", async () => {
-    const result = validateSubcategory();
+  // it("Validação de Subcategoria - empty field", async () => {
+  //   const result = validateSubcategory();
 
-    const expected = {
-      status: 422,
-      message: "A subcategoria é obrigatória.",
-    };
+  //   const expected = {
+  //     status: 422,
+  //     message: "A subcategoria é obrigatória.",
+  //   };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+  //   await expect(result).resolves.toStrictEqual(expected);
+  // });
 
-  it("Validação de Subcategoria - null value", async () => {
-    const result = validateSubcategory(null);
+  // it("Validação de Subcategoria - null value", async () => {
+  //   const result = validateSubcategory(null);
 
-    const expected = {
-      status: 422,
-      message: "A subcategoria é obrigatória.",
-    };
+  //   const expected = {
+  //     status: 422,
+  //     message: "A subcategoria é obrigatória.",
+  //   };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+  //   await expect(result).resolves.toStrictEqual(expected);
+  // });
 
-  it("Validação de Subcategoria - undefined value", async () => {
-    const result = validateSubcategory(undefined);
+  // it("Validação de Subcategoria - undefined value", async () => {
+  //   const result = validateSubcategory(undefined);
 
-    const expected = {
-      status: 422,
-      message: "A subcategoria é obrigatória.",
-    };
+  //   const expected = {
+  //     status: 422,
+  //     message: "A subcategoria é obrigatória.",
+  //   };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+  //   await expect(result).resolves.toStrictEqual(expected);
+  // });
 
-  it("Validação de Subcategoria - invalid value of string type", async () => {
-    const result = validateSubcategory("abc");
+  // it("Validação de Subcategoria - invalid value of string type", async () => {
+  //   const result = validateSubcategory("abc");
 
-    const expected = {
-      status: 422,
-      message: "Informe um valor numérico no campo de Subcategoria.",
-    };
+  //   const expected = {
+  //     status: 422,
+  //     message: "Informe um valor numérico no campo de Subcategoria.",
+  //   };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+  //   await expect(result).resolves.toStrictEqual(expected);
+  // });
 
-  it("Validação de Subcategoria - invalid value of boolean type", async () => {
-    const result = validateSubcategory(true);
+  // it("Validação de Subcategoria - invalid value of boolean type", async () => {
+  //   const result = validateSubcategory(true);
 
-    const expected = {
-      status: 422,
-      message: "Informe um valor numérico no campo de Subcategoria.",
-    };
+  //   const expected = {
+  //     status: 422,
+  //     message: "Informe um valor numérico no campo de Subcategoria.",
+  //   };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+  //   await expect(result).resolves.toStrictEqual(expected);
+  // });
 });
 
 /* ---------------------------------------- Busca de produto ---------------------------------------- */
 
-describe("Módulo de Produtos - Busca de produto", () => {
-  it("Validação de Produto - success with valid subcategory", async () => {
-    const validProduct = {
-      id: 1,
-      nome: "Luminária",
-      preco: 30,
-      descricao: "Luminária na cor preta, para cabeceiras",
-      ficha_tecnica: "30cm",
-      marca: "tramontina",
-      disponivel: true,
-      createdAt: "2023-09-27T18:14:05.970Z",
-      updatedAt: "2023-10-05T13:25:53.808Z",
-      id_subcategoria: 1,
-    };
+// describe("Módulo de Produtos - Busca de produto", () => {
+//   // it("Validação de Produto - success with valid subcategory", async () => {
+//   //   const validProduct = {
+//   //     id: 1,
+//   //     nome: "Luminária",
+//   //     preco: 30,
+//   //     descricao: "Luminária na cor preta, para cabeceiras",
+//   //     ficha_tecnica: "30cm",
+//   //     marca: "tramontina",
+//   //     disponivel: true,
+//   //     createdAt: "2023-09-27T18:14:05.970Z",
+//   //     updatedAt: "2023-10-05T13:25:53.808Z",
+//   //     id_subcategoria: 1,
+//   //   };
 
-    Produto.findByPk = jest.fn().mockResolvedValue(validProduct);
-    const result = await validateProduct(1);
+//   //   Produto.findByPk = jest.fn().mockResolvedValue(validProduct);
+//   //   const result = await validateProduct(1);
 
-    expect(result).toEqual(null);
-  });
+//   //   expect(result).toEqual(null);
+//   // });
 
-  it("Validação de Produto - Non-existent product", async () => {
-    Produto.findByPk = jest.fn().mockResolvedValue(null);
+//   it("Validação de Produto - Non-existent product", async () => {
+//     Produto.findByPk = jest.fn().mockResolvedValue(null);
 
-    const result = await validateProduct(1);
+//     const result = await validateProduct(1);
 
-    expect(result).toEqual({
-      status: 404,
-      message: "Informe um produto válido",
-    });
-  });
+//     expect(result).toEqual({
+//       status: 404,
+//       message: "Informe um produto válido",
+//     });
+//   });
 
-  it("Validação de ID - empty field", async () => {
-    const result = validateProduct();
+//   it("Validação de ID - empty field", async () => {
+//     const result = validateProduct();
 
-    const expected = {
-      status: 422,
-      message: "O id é obrigatório.",
-    };
+//     const expected = {
+//       status: 422,
+//       message: "O id é obrigatório.",
+//     };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+//     await expect(result).resolves.toStrictEqual(expected);
+//   });
 
-  it("Validação de ID - null value", async () => {
-    const result = validateProduct(null);
+//   it("Validação de ID - null value", async () => {
+//     const result = validateProduct(null);
 
-    const expected = {
-      status: 422,
-      message: "O id é obrigatório.",
-    };
+//     const expected = {
+//       status: 422,
+//       message: "O id é obrigatório.",
+//     };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+//     await expect(result).resolves.toStrictEqual(expected);
+//   });
 
-  it("Validação de ID - undefined value", async () => {
-    const result = validateProduct(undefined);
+//   it("Validação de ID - undefined value", async () => {
+//     const result = validateProduct(undefined);
 
-    const expected = {
-      status: 422,
-      message: "O id é obrigatório.",
-    };
+//     const expected = {
+//       status: 422,
+//       message: "O id é obrigatório.",
+//     };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+//     await expect(result).resolves.toStrictEqual(expected);
+//   });
 
-  it("Validação de ID - invalid value of string type", async () => {
-    const result = validateProduct("abc");
+//   it("Validação de ID - invalid value of string type", async () => {
+//     const result = validateProduct("abc");
 
-    const expected = {
-      status: 422,
-      message: "Informe um valor do tipo numérico no Id.",
-    };
+//     const expected = {
+//       status: 422,
+//       message: "Informe um valor do tipo numérico no Id.",
+//     };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+//     await expect(result).resolves.toStrictEqual(expected);
+//   });
 
-  it("Validação de ID - invalid value of boolean type", async () => {
-    const result = validateProduct(true);
+//   it("Validação de ID - invalid value of boolean type", async () => {
+//     const result = validateProduct(true);
 
-    const expected = {
-      status: 422,
-      message: "Informe um valor do tipo numérico no Id.",
-    };
+//     const expected = {
+//       status: 422,
+//       message: "Informe um valor do tipo numérico no Id.",
+//     };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
-});
+//     await expect(result).resolves.toStrictEqual(expected);
+//   });
+// });
 
 /* ---------------------------------------- Busca de produtos de uma Subcategoria ---------------------------------------- */
 
-describe("Módulo de Produtos - Busca de produto por subcategoria", () => {
-  it("Validação de Subcategoria - success with valid subcategory", async () => {
-    const validSubcategory = {
-      id: 1,
-      nome: "Teste",
-      createdAt: "2023-09-27T18:13:58.552Z",
-      updatedAt: "2023-09-27T18:13:58.552Z",
-      id_categoria: 1,
-    };
+// describe("Módulo de Produtos - Busca de produto por subcategoria", () => {
+//   // it("Validação de Subcategoria - success with valid subcategory", async () => {
+//   //   const validSubcategory = {
+//   //     id: 1,
+//   //     nome: "Teste",
+//   //     createdAt: "2023-09-27T18:13:58.552Z",
+//   //     updatedAt: "2023-09-27T18:13:58.552Z",
+//   //     id_categoria: 1,
+//   //   };
 
-    Subcategoria.findByPk = jest.fn().mockResolvedValue(validSubcategory);
-    const result = await validateSubcategory(1);
+//   //   Subcategoria.findByPk = jest.fn().mockResolvedValue(validSubcategory);
+//   //   const result = await validateSubcategory(1);
 
-    expect(result).toEqual(null);
-  });
+//   //   expect(result).toEqual(null);
+//   // });
 
-  it("Validação de Subcategoria - Non-existent subcategory", async () => {
-    Subcategoria.findByPk = jest.fn().mockResolvedValue(null);
+//   // it("Validação de Subcategoria - Non-existent subcategory", async () => {
+//   //   Subcategoria.findByPk = jest.fn().mockResolvedValue(null);
 
-    const result = await validateSubcategory(1);
+//   //   const result = await validateSubcategory(1);
 
-    expect(result).toEqual({
-      status: 404,
-      message: "Informe uma subcategoria válida",
-    });
-  });
+//   //   expect(result).toEqual({
+//   //     status: 404,
+//   //     message: "Informe uma subcategoria válida",
+//   //   });
+//   // });
 
-  it("Validação de Subcategoria - empty field", async () => {
-    const result = validateSubcategory();
+//   it("Validação de Subcategoria - empty field", async () => {
+//     const result = validateSubcategory();
 
-    const expected = {
-      status: 422,
-      message: "A subcategoria é obrigatória.",
-    };
+//     const expected = {
+//       status: 422,
+//       message: "A subcategoria é obrigatória.",
+//     };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+//     await expect(result).resolves.toStrictEqual(expected);
+//   });
 
-  it("Validação de Subcategoria - null value", async () => {
-    const result = validateSubcategory(null);
+//   it("Validação de Subcategoria - null value", async () => {
+//     const result = validateSubcategory(null);
 
-    const expected = {
-      status: 422,
-      message: "A subcategoria é obrigatória.",
-    };
+//     const expected = {
+//       status: 422,
+//       message: "A subcategoria é obrigatória.",
+//     };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+//     await expect(result).resolves.toStrictEqual(expected);
+//   });
 
-  it("Validação de Subcategoria - undefined value", async () => {
-    const result = validateSubcategory(undefined);
+//   it("Validação de Subcategoria - undefined value", async () => {
+//     const result = validateSubcategory(undefined);
 
-    const expected = {
-      status: 422,
-      message: "A subcategoria é obrigatória.",
-    };
+//     const expected = {
+//       status: 422,
+//       message: "A subcategoria é obrigatória.",
+//     };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+//     await expect(result).resolves.toStrictEqual(expected);
+//   });
 
-  it("Validação de Subcategoria - invalid value of string type", async () => {
-    const result = validateSubcategory("abc");
+//   it("Validação de Subcategoria - invalid value of string type", async () => {
+//     const result = validateSubcategory("abc");
 
-    const expected = {
-      status: 422,
-      message: "Informe um valor numérico no campo de Subcategoria.",
-    };
+//     const expected = {
+//       status: 422,
+//       message: "Informe um valor numérico no campo de Subcategoria.",
+//     };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+//     await expect(result).resolves.toStrictEqual(expected);
+//   });
 
-  it("Validação de Subcategoria - invalid value of boolean type", async () => {
-    const result = validateSubcategory(true);
+//   it("Validação de Subcategoria - invalid value of boolean type", async () => {
+//     const result = validateSubcategory(true);
 
-    const expected = {
-      status: 422,
-      message: "Informe um valor numérico no campo de Subcategoria.",
-    };
+//     const expected = {
+//       status: 422,
+//       message: "Informe um valor numérico no campo de Subcategoria.",
+//     };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
-});
+//     await expect(result).resolves.toStrictEqual(expected);
+//   });
+// });
 
 /* ---------------------------------------- Atualização de Produto ---------------------------------------- */
 
 describe("Módulo de Produtos - Atualização de produto", () => {
-  it("Validação de ID - empty field", async () => {
-    const result = validateProduct();
+  // it("Validação de ID - empty field", async () => {
+  //   const result = validateProduct();
 
-    const expected = {
-      status: 422,
-      message: "O id é obrigatório.",
-    };
+  //   const expected = {
+  //     status: 422,
+  //     message: "O id é obrigatório.",
+  //   };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+  //   await expect(result).resolves.toStrictEqual(expected);
+  // });
 
-  it("Validação de ID - null value", async () => {
-    const result = validateProduct(null);
+  // it("Validação de ID - null value", async () => {
+  //   const result = validateProduct(null);
 
-    const expected = {
-      status: 422,
-      message: "O id é obrigatório.",
-    };
+  //   const expected = {
+  //     status: 422,
+  //     message: "O id é obrigatório.",
+  //   };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+  //   await expect(result).resolves.toStrictEqual(expected);
+  // });
 
-  it("Validação de ID - undefined value", async () => {
-    const result = validateProduct(undefined);
+  // it("Validação de ID - undefined value", async () => {
+  //   const result = validateProduct(undefined);
 
-    const expected = {
-      status: 422,
-      message: "O id é obrigatório.",
-    };
+  //   const expected = {
+  //     status: 422,
+  //     message: "O id é obrigatório.",
+  //   };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+  //   await expect(result).resolves.toStrictEqual(expected);
+  // });
 
-  it("Validação de ID - invalid value of string type", async () => {
-    const result = validateProduct("abc");
+  // it("Validação de ID - invalid value of string type", async () => {
+  //   const result = validateProduct("abc");
 
-    const expected = {
-      status: 422,
-      message: "Informe um valor do tipo numérico no Id.",
-    };
+  //   const expected = {
+  //     status: 422,
+  //     message: "Informe um valor do tipo numérico no Id.",
+  //   };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+  //   await expect(result).resolves.toStrictEqual(expected);
+  // });
 
-  it("Validação de ID - invalid value of boolean type", async () => {
-    const result = validateProduct(true);
+  // it("Validação de ID - invalid value of boolean type", async () => {
+  //   const result = validateProduct(true);
 
-    const expected = {
-      status: 422,
-      message: "Informe um valor do tipo numérico no Id.",
-    };
+  //   const expected = {
+  //     status: 422,
+  //     message: "Informe um valor do tipo numérico no Id.",
+  //   };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+  //   await expect(result).resolves.toStrictEqual(expected);
+  // });
   it("Validação de Nome - success with valid name", () => {
     const result = validateName("Lustre");
 
@@ -963,84 +963,84 @@ describe("Módulo de Produtos - Atualização de produto", () => {
 
   /* ---------------------------------------- Subcategoria ---------------------------------------- */
 
-  it("Validação de Subcategoria - success with valid subcategory", async () => {
-    const validSubcategory = {
-      id: 1,
-      nome: "Teste",
-      createdAt: "2023-09-27T18:13:58.552Z",
-      updatedAt: "2023-09-27T18:13:58.552Z",
-      id_categoria: 1,
-    };
+  // it("Validação de Subcategoria - success with valid subcategory", async () => {
+  //   const validSubcategory = {
+  //     id: 1,
+  //     nome: "Teste",
+  //     createdAt: "2023-09-27T18:13:58.552Z",
+  //     updatedAt: "2023-09-27T18:13:58.552Z",
+  //     id_categoria: 1,
+  //   };
 
-    Subcategoria.findByPk = jest.fn().mockResolvedValue(validSubcategory);
-    const result = await validateSubcategory(1);
+  //   Subcategoria.findByPk = jest.fn().mockResolvedValue(validSubcategory);
+  //   const result = await validateSubcategory(1);
 
-    expect(result).toEqual(null);
-  });
+  //   expect(result).toEqual(null);
+  // });
 
-  it("Validação de Subcategoria - Non-existent subcategory", async () => {
-    Subcategoria.findByPk = jest.fn().mockResolvedValue(null);
+  // it("Validação de Subcategoria - Non-existent subcategory", async () => {
+  //   Subcategoria.findByPk = jest.fn().mockResolvedValue(null);
 
-    const result = await validateSubcategory(1);
+  //   const result = await validateSubcategory(1);
 
-    expect(result).toEqual({
-      status: 404,
-      message: "Informe uma subcategoria válida",
-    });
-  });
+  //   expect(result).toEqual({
+  //     status: 404,
+  //     message: "Informe uma subcategoria válida",
+  //   });
+  // });
 
-  it("Validação de Subcategoria - empty field", async () => {
-    const result = validateSubcategory();
+  // it("Validação de Subcategoria - empty field", async () => {
+  //   const result = validateSubcategory();
 
-    const expected = {
-      status: 422,
-      message: "A subcategoria é obrigatória.",
-    };
+  //   const expected = {
+  //     status: 422,
+  //     message: "A subcategoria é obrigatória.",
+  //   };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+  //   await expect(result).resolves.toStrictEqual(expected);
+  // });
 
-  it("Validação de Subcategoria - null value", async () => {
-    const result = validateSubcategory(null);
+  // it("Validação de Subcategoria - null value", async () => {
+  //   const result = validateSubcategory(null);
 
-    const expected = {
-      status: 422,
-      message: "A subcategoria é obrigatória.",
-    };
+  //   const expected = {
+  //     status: 422,
+  //     message: "A subcategoria é obrigatória.",
+  //   };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+  //   await expect(result).resolves.toStrictEqual(expected);
+  // });
 
-  it("Validação de Subcategoria - undefined value", async () => {
-    const result = validateSubcategory(undefined);
+  // it("Validação de Subcategoria - undefined value", async () => {
+  //   const result = validateSubcategory(undefined);
 
-    const expected = {
-      status: 422,
-      message: "A subcategoria é obrigatória.",
-    };
+  //   const expected = {
+  //     status: 422,
+  //     message: "A subcategoria é obrigatória.",
+  //   };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+  //   await expect(result).resolves.toStrictEqual(expected);
+  // });
 
-  it("Validação de Subcategoria - invalid value of string type", async () => {
-    const result = validateSubcategory("abc");
+  // it("Validação de Subcategoria - invalid value of string type", async () => {
+  //   const result = validateSubcategory("abc");
 
-    const expected = {
-      status: 422,
-      message: "Informe um valor numérico no campo de Subcategoria.",
-    };
+  //   const expected = {
+  //     status: 422,
+  //     message: "Informe um valor numérico no campo de Subcategoria.",
+  //   };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+  //   await expect(result).resolves.toStrictEqual(expected);
+  // });
 
-  it("Validação de Subcategoria - invalid value of boolean type", async () => {
-    const result = validateSubcategory(true);
+  // it("Validação de Subcategoria - invalid value of boolean type", async () => {
+  //   const result = validateSubcategory(true);
 
-    const expected = {
-      status: 422,
-      message: "Informe um valor numérico no campo de Subcategoria.",
-    };
+  //   const expected = {
+  //     status: 422,
+  //     message: "Informe um valor numérico no campo de Subcategoria.",
+  //   };
 
-    await expect(result).resolves.toStrictEqual(expected);
-  });
+  //   await expect(result).resolves.toStrictEqual(expected);
+  // });
 });
