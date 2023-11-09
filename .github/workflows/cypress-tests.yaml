@@ -23,7 +23,7 @@ jobs:
 
       - name: Run Cypress Tests
         run: |
-          cd frontend
           sudo npm install -g http-server
           http-server -p 5500
+          cd frontend
           npx cypress run
