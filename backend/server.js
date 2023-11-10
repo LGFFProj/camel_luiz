@@ -4,7 +4,7 @@ const app = express();
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger.json");
 
-const conn = require("./db/conn");
+// const conn = require("./db/conn");
 
 const webRouter = require("./routes/web");
 const public_path = "public";

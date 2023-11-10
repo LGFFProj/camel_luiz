@@ -1,5 +1,5 @@
-const Subcategoria = require("../models/subcategoria");
-const Produto = require("../models/produto");
+// const Subcategoria = require("../models/subcategoria");
+// const Produto = require("../models/produto");
 
 const {
   validateName,
