@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const logger = require("./helpers/logger")
 
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger.json");
@@ -18,6 +19,7 @@ app.set("view engine", "ejs");
 app.set("views", [views_path]);
 app.use("/", webRouter);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.user(logger);
 
 const PORT = 3000;
 
