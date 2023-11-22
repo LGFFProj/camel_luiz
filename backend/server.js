@@ -8,7 +8,6 @@ const swaggerDocument = require("./swagger.json");
  const conn = require("./db/conn");
 
 const webRouter = require("./routes/web");
-const logger = require("./logger");
 const public_path = "public";
 const views_path = "views";
 
