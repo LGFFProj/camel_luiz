@@ -1,5 +1,5 @@
 // const Subcategoria = require("../models/subcategoria");
-// const Produto = require("../models/produto");
+ const Produto = require("../models/produto");
 // const Cliente = require("../models/cliente");
 // const Endereco = require("../models/endereco");
 
@@ -156,11 +156,14 @@ function validateId(id) {
 
 async function validateProduct(id) {
   const validateIdResult = validateId(id);
+  console.log(validateIdResult)
   if (validateIdResult) {
     return validateIdResult;
   }
 
   const hasProduct = await Produto.findByPk(id);
+
+  console.log(hasProduct)
   if (!hasProduct) {
     return {
       status: 404,

@@ -20,11 +20,6 @@ const produto = db.define("produto", {
     required: true,
     allowNull: false,
   },
-  ficha_tecnica: {
-    type: DataTypes.STRING(500),
-    required: true,
-    allowNull: false,
-  },
   marca: {
     type: DataTypes.STRING(500),
     required: true,
@@ -35,6 +30,10 @@ const produto = db.define("produto", {
     required: true,
     allowNull: false,
   },
+}, {
+  freezeTableName: true,
+  createdAt: false,
+  updatedAt: false
 });
 
 produto.belongsTo(Subcategoria, { foreignKey: "id_subcategoria"});
