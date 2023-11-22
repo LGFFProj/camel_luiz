@@ -10,6 +10,10 @@ const subcategoria = db.define("subcategoria", {
     required: true,
     allowNull: false,
   },
+}, {
+  freezeTableName: true,
+  createdAt: false,
+  updatedAt: false
 });
 
 

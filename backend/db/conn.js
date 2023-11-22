@@ -1,16 +1,23 @@
  const { Sequelize } = require("sequelize");
 
- const sequelize = new Sequelize("camel", "postgres", "12345678", {
+//Postgres
+/*const sequelize = new Sequelize("camel", "postgres", "1101051101", {
    host: "localhost",
    dialect: "postgres",
    logging: true
- });
+});*/
 
- try {
+//SQLite
+const sequelize = new Sequelize({
+  dialect: 'sqlite',
+  storage: './database/db.sqlite'
+})
+
+try {
    sequelize.authenticate();
    console.log('Conectado com sucesso ao Banco de Dados');
- } catch (error) {
+} catch (error) {
    console.error('Não foi possivel conectar ao banco de dados:', error);
- }
+}
 
  module.exports = sequelize

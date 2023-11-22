@@ -8,6 +8,10 @@ const categoria = db.define("categoria", {
     required: true,
     allowNull: false,
   },
+}, {
+  freezeTableName: true,
+  createdAt: false,
+  updatedAt: false
 });
 
 module.exports = categoria;

@@ -38,6 +38,11 @@ const Endereco = db.define("endereco", {
     required: true,
     allowNull: false,
   },
+},
+{
+  freezeTableName: true,
+  createdAt: false,
+  updatedAt: false
 });
 
 Endereco.belongsTo(Cliente, { foreignKey: "id_cliente", onDelete: "CASCADE" });

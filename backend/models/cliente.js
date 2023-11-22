@@ -28,7 +28,9 @@ const cliente = db.define("cliente", {
     unique: true,
   },
 },{
-  freezeTableName: true
+  freezeTableName: true,
+  createdAt: false,
+  updatedAt: false
 });
 
 module.exports = cliente;
