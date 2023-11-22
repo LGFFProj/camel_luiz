@@ -15,7 +15,7 @@ if (!fs.existsSync(dir)){
 //Stream de Conexão ao Arquivo de Log
 const data = new Date;
 const logPath = data.getDate() +"_"+ `${data.getMonth() + 1}` +"_"+ data.getFullYear() +"-"+ new Date(Date.now()).toLocaleTimeString().split(":").join(".")
-const logFile = fs.createWriteStream(`./logsacessos/${logPath}_acesso.log`)
+const logFile = fs.createWriteStream(`./log/${logPath}_acesso.log`)
 
 const logger = (req, res, next) => {
        
