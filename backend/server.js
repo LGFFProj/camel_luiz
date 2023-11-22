@@ -7,6 +7,9 @@ const swaggerDocument = require("./swagger.json");
 
  const conn = require("./db/conn");
 
+ //Logar requisições da API
+ app.use(logger)
+
 const webRouter = require("./routes/web");
 const public_path = "public";
 const views_path = "views";
@@ -19,7 +22,7 @@ app.set("view engine", "ejs");
 app.set("views", [views_path]);
 app.use("/", webRouter);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.use(logger)
+
 const PORT = 3000;
 
 conn
